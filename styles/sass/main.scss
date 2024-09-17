@@ -1,0 +1,36 @@
+/* main.scss */
+
+/* Импорт Tailwind CSS */
+
+/* Импорт переменных и миксинов сначала */
+@import "base/variables";
+
+/* Импорт базовых стилей */
+@import "base/reset";
+@import "base/variables";
+@import "base/typography";
+@import "base/lists";
+
+/* Импорт макетных стилей */
+@import "layout/header";
+@import "layout/main";
+@import "layout/footer";
+
+/* Импорт компонентов */
+@import "components/buttons";
+@import "components/special-order";
+@import "components/commission.scss";
+@import "components/modal";
+@import "components/calculator";
+@import "components/discount-section";
+@import "components/gallery";
+@import "components/images";
+@import "components/customer-form";
+@import "components/customer-list";
+@import "components/customer-search";
+@import "components/modules";
+@import "components/builder-discounts";
+@import "components/supliers";
+
+/* Импорт стилей страниц */
+@import "pages/customer-management";

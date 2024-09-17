@@ -1,0 +1,85 @@
+/* Стили основного контента */
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Стили для главного меню */
+.main-menu {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+.main-menu__item {
+  width: 200px;
+  height: 200px;
+  background-color: #333333; /* Темно-серый основной фон */
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Мягкая тень для объема */
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+  opacity: 0.9;
+}
+
+.menu-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: #ffd700; /* Яркий жёлтый цвет текста */
+  font-size: 22px; /* Чуть больше текста для выделения */
+  text-transform: uppercase;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.menu-link:hover {
+  color: #ffffff; /* Белый цвет текста при наведении */
+  transform: scale(1.05);
+}
+
+.main-menu__item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); /* Глубокая тень при наведении */
+  background-color: #ffd700; /* Яркий жёлтый фон при наведении */
+}
+
+.main-menu__item:hover .menu-link {
+  color: #333333; /* Темно-серый текст на жёлтом фоне */
+}
+
+/* Дополнительные стили для изображений */
+.special-order_images {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.commission-img {
+  max-width: 150px;
+  margin: 10px;
+  display: block;
+}
+
+/* Стили для секций с ценами и информацией */
+.prices-section,
+.additional-discounts,
+.terms,
+.deadlines {
+  margin-bottom: 30px;
+}

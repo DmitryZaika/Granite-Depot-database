@@ -1,0 +1,119 @@
+.warehouse-container {
+  width: 100%;
+}
+
+.column-headings {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f1f1f1;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+.column-headings .heading {
+  text-align: center;
+}
+
+.column-headings .supplier {
+  width: 25%;
+  text-align: left; /* Выравнивание заголовка "Suppliers" влево */
+}
+
+.column-headings .checkbox {
+  width: 5%;
+  text-align: center;
+}
+
+.column-headings .name {
+  width: 15%;
+  text-align: center;
+}
+
+.column-headings .phone {
+  width: 15%;
+  text-align: center;
+}
+
+.column-headings .email {
+  width: 25%;
+  text-align: center;
+}
+
+.column-headings .notes {
+  width: 10%;
+  text-align: center;
+}
+
+/* Ограничение стилей для ul и li только в .warehouse-list */
+.warehouse-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.warehouse-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin: 10px 0; /* Добавлен отступ между строками */
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ddd; /* Добавлен бордер */
+  border-radius: 5px; /* Округленные углы */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для выделения */
+}
+
+.warehouse-list li:hover {
+  background-color: #f7f7f7;
+}
+
+.warehouse-list li .supplier {
+  width: 25%;
+  text-align: left; /* Выравнивание текста "Suppliers" влево */
+}
+
+.warehouse-list li .supplier a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.warehouse-list li .supplier a:hover {
+  text-decoration: underline;
+}
+
+.warehouse-list li .checkbox {
+  width: 5%;
+  text-align: center;
+  max-width: 60px;
+}
+
+.warehouse-list li .checkbox img {
+  height: 20px;
+  display: inline-block;
+}
+
+.warehouse-list li .name {
+  width: 15%;
+  text-align: center;
+}
+
+.warehouse-list li .phone {
+  width: 15%;
+  text-align: center;
+}
+
+.warehouse-list li .email {
+  width: 25%;
+  text-align: center;
+}
+
+.warehouse-list li .notes {
+  width: 10%;
+  text-align: center;
+}

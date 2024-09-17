@@ -1,0 +1,962 @@
+@charset "UTF-8";
+/* main.scss */
+/* Импорт Tailwind CSS */
+/* Импорт переменных и миксинов сначала */
+/* Импорт базовых стилей */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.bold-text {
+  font-weight: 600; /* Или можно использовать числовое значение: font-weight: 700; */
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+ul.numbered,
+ol.numbered {
+  list-style-type: decimal;
+}
+
+ul.bulleted {
+  list-style-type: disc;
+}
+
+ul.special {
+  list-style-type: circle;
+}
+
+/* Импорт макетных стилей */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* Логотип */
+.logo img {
+  width: 100px;
+}
+
+/* Стили навигации */
+.main-nav ul {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-nav ul li {
+  list-style: none;
+}
+
+.main-nav ul li a {
+  color: #333;
+  padding: 10px 15px;
+  border: 2px solid #ffd700;
+  background-color: #333;
+  color: #ffd700;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+  background-color: #ffd700;
+  color: #333;
+}
+
+/* Стили основного контента */
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Стили для главного меню */
+.main-menu {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+.main-menu__item {
+  width: 200px;
+  height: 200px;
+  background-color: #333333; /* Темно-серый основной фон */
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Мягкая тень для объема */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  opacity: 0.9;
+}
+
+.menu-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: #ffd700; /* Яркий жёлтый цвет текста */
+  font-size: 22px; /* Чуть больше текста для выделения */
+  text-transform: uppercase;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.menu-link:hover {
+  color: #ffffff; /* Белый цвет текста при наведении */
+  transform: scale(1.05);
+}
+
+.main-menu__item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); /* Глубокая тень при наведении */
+  background-color: #ffd700; /* Яркий жёлтый фон при наведении */
+}
+
+.main-menu__item:hover .menu-link {
+  color: #333333; /* Темно-серый текст на жёлтом фоне */
+}
+
+/* Дополнительные стили для изображений */
+.special-order_images {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.commission-img {
+  max-width: 150px;
+  margin: 10px;
+  display: block;
+}
+
+/* Стили для секций с ценами и информацией */
+.prices-section,
+.additional-discounts,
+.terms,
+.deadlines {
+  margin-bottom: 30px;
+}
+
+/* Стили для футера */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Импорт компонентов */
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.customer-form button,
+.customer-list ul li .edit-btn,
+.customer-list ul li .delete-btn {
+  width: 100%;
+  background-color: #333333;
+  color: #FFD700;
+}
+
+.customer-form button:hover,
+.customer-list ul li .edit-btn:hover,
+.customer-list ul li .delete-btn:hover {
+  background-color: #555555;
+}
+
+.customer-list ul li .edit-btn,
+.customer-list ul li .delete-btn {
+  margin-left: 10px;
+  background-color: #333333;
+  color: #FFD700;
+  font-size: 14px;
+}
+.customer-list ul li .edit-btn:hover,
+.customer-list ul li .delete-btn:hover {
+  background-color: #FFD700;
+  color: #333333;
+}
+
+/* Special Order Image Styles */
+.special-order_images {
+  display: flex;
+  justify-content: space-around; /* Горизонтальное расположение с равными отступами */
+  align-items: center;
+}
+
+.special-order_images img {
+  max-width: 100%; /* Каждое изображение займет до 45% ширины */
+  height: auto;
+  display: block;
+}
+
+.special-order_images p {
+  margin-left: 10px; /* Отступ между изображением и текстом */
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+/* Styles for images in commission section */
+.commission-img {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Модальное окно */
+.modal, .customer-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9); /* Черный полупрозрачный фон */
+}
+
+.modal-content, .customer-modal-content {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+  max-height: 80%;
+}
+
+.close, .customer-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover, .close:focus, .customer-modal-close:hover, .customer-modal-close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.calculator {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 20px auto;
+}
+.calculator h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.calculator label {
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: block;
+}
+.calculator input[type=text],
+.calculator input[type=number],
+.calculator input[type=email],
+.calculator input[type=tel],
+.calculator input[type=file] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.calculator .result {
+  font-size: 18px;
+  margin-top: 20px;
+  text-align: center;
+}
+.calculator button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #FFD700;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.calculator button:hover {
+  background-color: #ffcc00;
+}
+
+.calculator-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 20px auto;
+}
+.calculator-container h3 {
+  margin-bottom: 15px;
+  font-size: 24px;
+  color: #333;
+}
+.calculator-container label {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: bold;
+}
+.calculator-container input[type=number] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.calculator-container .row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.calculator-container .row input {
+  width: 50%;
+}
+.calculator-container .slabs-counter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.calculator-container .slabs-counter button {
+  background-color: #333;
+  color: #FFD700;
+  border: none;
+  padding: 8px 12px;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.calculator-container .slabs-counter span {
+  font-size: 18px;
+  font-weight: bold;
+}
+.calculator-container .slab-area {
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+}
+.calculator-container .result {
+  font-size: 18px;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+  padding-top: 10px;
+}
+.calculator-container .result-total {
+  font-size: 20px;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #c31b1b;
+  padding-top: 10px;
+}
+
+.discount-section {
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+.discount-section h2 {
+  font-size: 24px;
+  text-decoration: underline;
+  margin-bottom: 15px;
+}
+.discount-section p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.discount-section ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+.discount-section ul li {
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+.discount-section ul li::before {
+  content: "●";
+  position: absolute;
+  left: 0;
+}
+.discount-section ul li strong {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.discount-section ul li em {
+  font-style: italic;
+}
+.discount-section ul + p {
+  margin-top: 15px;
+}
+.discount-section ul li strong {
+  text-decoration: none;
+}
+
+.builder-discount-container {
+  background-color: #f9f9f9; /* Светлый фон для выделения */
+  padding: 20px;
+  border: 1px solid #ccc; /* Серая обводка */
+  border-radius: 10px; /* Скругленные углы */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Мягкая тень */
+  margin-bottom: 20px; /* Отступ снизу */
+}
+
+.builder-discount-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333; /* Темно-серый цвет текста */
+  margin-bottom: 10px;
+  text-decoration: underline; /* Подчеркивание текста */
+}
+
+.builder-discount-list {
+  padding-left: 20px;
+  list-style: none; /* Убираем стандартные маркеры списка */
+}
+
+.builder-discount-list li {
+  margin-bottom: 10px; /* Отступ между пунктами */
+  font-size: 16px;
+  color: #555; /* Цвет текста */
+}
+
+.builder-discount-list li::before {
+  content: "● "; /* Добавляем символ маркера перед каждым пунктом */
+  color: #333; /* Цвет маркера */
+}
+
+/* Стили для галерей и изображений */
+.downloads-gallery, .image-gallery, .supports-gallery, .documents-gallery {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
+  overflow-x: auto;
+}
+
+.thumbnail, .support-thumbnail, .pdf-thumbnail {
+  width: 150px;
+  height: auto;
+  border: 2px solid #007bff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease, background-color 0.3s ease;
+}
+
+.thumbnail:hover, .support-thumbnail:hover, .pdf-thumbnail:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-color: #007bff;
+  background-color: #e0e0e0;
+  z-index: 10;
+}
+
+.special-order_images {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.commission-img {
+  margin: auto;
+  display: block;
+}
+
+/* Стили для управления клиентами */
+.customer-form, .customer-list {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.customer-form h2, .customer-list h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.customer-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.customer-form input[type=text], .customer-form input[type=email], .customer-form input[type=tel], .customer-form input[type=file], .customer-form input[type=text] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.customer-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #333;
+  color: #FFD700;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.customer-form button:hover {
+  background-color: #555;
+}
+
+.customer-list ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.customer-list ul li {
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.customer-list ul li:hover {
+  background-color: #f4f4f4;
+}
+
+.customer-list ul li img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.customer-list ul li span {
+  font-size: 16px;
+  color: #333;
+}
+
+.customer-list ul li .edit-btn, .customer-list ul li .delete-btn {
+  margin-left: 10px;
+  color: #FFD700;
+  background-color: #333;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.customer-list ul li .edit-btn:hover, .customer-list ul li .delete-btn:hover {
+  background-color: #FFD700;
+  color: #333;
+}
+
+.customer-list ul li .details {
+  display: flex;
+  align-items: center;
+}
+
+.customer-list {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 20px auto;
+}
+.customer-list h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #333333;
+}
+.customer-list ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+.customer-list li {
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.customer-list li:hover {
+  background-color: #f4f4f4;
+}
+.customer-list li img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.customer-list li span {
+  font-size: 16px;
+  color: #333333;
+}
+.customer-list li .edit-btn,
+.customer-list li .delete-btn {
+  margin-left: 10px;
+  color: #FFD700;
+  background-color: #333333;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.customer-list li .edit-btn:hover,
+.customer-list li .delete-btn:hover {
+  background-color: #FFD700;
+  color: #333333;
+}
+.customer-list li .details {
+  display: flex;
+  align-items: center;
+}
+
+/* Стили для поиска клиентов */
+.customer-search {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.customer-search input[type=text] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+#searchResults {
+  list-style-type: none;
+  padding-left: 0;
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+}
+
+#searchResults li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+
+#searchResults li:last-child {
+  border-bottom: none;
+}
+
+#searchResults li:hover {
+  background-color: #f4f4f4;
+}
+
+/* _modules.scss */
+.modules {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.module {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.module-title,
+.submodule-title {
+  cursor: pointer;
+  margin-bottom: 10px;
+  user-select: none; /* Нельзя выделить сам заголовок */
+}
+
+.submodule-title p,
+.submodule-title span,
+.submodule-title h3 {
+  user-select: text;
+}
+
+.dropdown-content,
+.submodule-content {
+  margin-top: 10px;
+  padding-left: 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.dropdown-content ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+/* Активация контента при открытии модуля */
+.module.active .dropdown-content {
+  max-height: 1000px;
+  transition: max-height 0.3s ease-in-out;
+  overflow-x: auto;
+}
+
+/* Убираем ограничение высоты для подмодулей */
+.submodule.active .submodule-content {
+  max-height: none; /* Раньше было 100px */
+  transition: max-height 0.3s ease-in-out;
+  overflow: visible;
+}
+
+.builder-discount-text {
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-decoration: underline;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+ul li {
+  margin-bottom: 8px;
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+ul ul li {
+  font-size: 15px;
+  padding-left: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+ul ul li::before {
+  margin-right: 5px;
+}
+
+ul li strong {
+  text-decoration: underline;
+}
+
+.builder-discount-text strong {
+  color: #333;
+  background-color: #ffd700;
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
+.warehouse-container {
+  width: 100%;
+}
+
+.column-headings {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f1f1f1;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+.column-headings .heading {
+  text-align: center;
+}
+
+.column-headings .supplier {
+  width: 25%;
+  text-align: left; /* Выравнивание заголовка "Suppliers" влево */
+}
+
+.column-headings .checkbox {
+  width: 5%;
+  text-align: center;
+}
+
+.column-headings .name {
+  width: 15%;
+  text-align: center;
+}
+
+.column-headings .phone {
+  width: 15%;
+  text-align: center;
+}
+
+.column-headings .email {
+  width: 25%;
+  text-align: center;
+}
+
+.column-headings .notes {
+  width: 10%;
+  text-align: center;
+}
+
+/* Ограничение стилей для ul и li только в .warehouse-list */
+.warehouse-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.warehouse-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin: 10px 0; /* Добавлен отступ между строками */
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ddd; /* Добавлен бордер */
+  border-radius: 5px; /* Округленные углы */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для выделения */
+}
+
+.warehouse-list li:hover {
+  background-color: #f7f7f7;
+}
+
+.warehouse-list li .supplier {
+  width: 25%;
+  text-align: left; /* Выравнивание текста "Suppliers" влево */
+}
+
+.warehouse-list li .supplier a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.warehouse-list li .supplier a:hover {
+  text-decoration: underline;
+}
+
+.warehouse-list li .checkbox {
+  width: 5%;
+  text-align: center;
+  max-width: 60px;
+}
+
+.warehouse-list li .checkbox img {
+  height: 20px;
+  display: inline-block;
+}
+
+.warehouse-list li .name {
+  width: 15%;
+  text-align: center;
+}
+
+.warehouse-list li .phone {
+  width: 15%;
+  text-align: center;
+}
+
+.warehouse-list li .email {
+  width: 25%;
+  text-align: center;
+}
+
+.warehouse-list li .notes {
+  width: 10%;
+  text-align: center;
+}
+
+/* Импорт стилей страниц */
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,15 @@
+{
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "tailwindcss": "^3.4.10",
+    "sass": "^1.63.6",
+    "postcss": "^8.4.16",
+    "autoprefixer": "^10.4.2"
+  },
+  "scripts": {
+    "build:css": "postcss styles/main.css -o styles/main-built.css",
+    "build:sass": "sass styles/sass/main.scss styles/main.css --no-source-map",
+    "watch:sass": "sass --watch styles/sass/main.scss styles/main.css",
+    "start": "npm run watch:sass"
+  }
+}

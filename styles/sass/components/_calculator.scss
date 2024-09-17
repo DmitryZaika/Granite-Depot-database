@@ -1,0 +1,143 @@
+.calculator {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 20px auto;
+
+    h3 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    label {
+        font-size: 16px;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="file"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .result {
+        font-size: 18px;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #FFD700;
+        color: #333;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #ffcc00;
+    }
+}
+
+.calculator-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 20px auto;
+
+    h3 {
+        margin-bottom: 15px;
+        font-size: 24px;
+        color: #333;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        color: #333;
+        font-weight: bold;
+    }
+
+    input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .row {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+
+        input {
+            width: 50%;
+        }
+    }
+
+    .slabs-counter {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        button {
+            background-color: #333;
+            color: #FFD700;
+            border: none;
+            padding: 8px 12px;
+            font-size: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        span {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    }
+
+    .slab-area {
+        font-size: 18px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .result {
+        font-size: 18px;
+        margin-top: 10px;
+        font-weight: bold;
+        color: #333;
+        padding-top: 10px;
+    }
+
+    .result-total {
+        font-size: 20px;
+        margin-top: 10px;
+        font-weight: bold;
+        color: #c31b1b;
+        padding-top: 10px;
+    }
+}

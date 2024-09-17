@@ -1,0 +1,20 @@
+/* Special Order Image Styles */
+.special-order_images {
+    display: flex;
+    justify-content: space-around; /* Горизонтальное расположение с равными отступами */
+    align-items: center;
+  
+}
+
+.special-order_images img {
+    max-width: 100%; /* Каждое изображение займет до 45% ширины */
+    height: auto;
+    display: block;
+}
+
+.special-order_images p {
+    margin-left: 10px; /* Отступ между изображением и текстом */
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}

@@ -1,0 +1,70 @@
+.customer-list {
+    background-color: $color-white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba($color-black, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+
+    h2 {
+        font-size: 22px;
+        margin-bottom: 15px;
+        color: $color-primary;
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    li {
+        background-color: #f9f9f9;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        transition: background-color $transition-speed ease;
+
+        &:hover {
+            background-color: #f4f4f4;
+        }
+
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        span {
+            font-size: 16px;
+            color: $color-primary;
+        }
+
+        .edit-btn,
+        .delete-btn {
+            margin-left: 10px;
+            color: $color-secondary;
+            background-color: $color-primary;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color $transition-speed ease, color $transition-speed ease;
+
+            &:hover {
+                background-color: $color-secondary;
+                color: $color-primary;
+            }
+        }
+
+        .details {
+            display: flex;
+            align-items: center;
+        }
+    }
+}

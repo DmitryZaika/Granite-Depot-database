@@ -1,0 +1,55 @@
+/* _modules.scss */
+
+.modules {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.module {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.module-title,
+.submodule-title {
+  cursor: pointer;
+  margin-bottom: 10px;
+  user-select: none; /* Нельзя выделить сам заголовок */
+}
+
+.submodule-title p, /* Позволяем выделять текст внутри */
+.submodule-title span, 
+.submodule-title h3 {
+  user-select: text;
+}
+
+.dropdown-content,
+.submodule-content {
+  margin-top: 10px;
+  padding-left: 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.dropdown-content ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+/* Активация контента при открытии модуля */
+.module.active .dropdown-content {
+  max-height: 1000px;
+  transition: max-height 0.3s ease-in-out;
+  overflow-x: auto;
+}
+
+/* Убираем ограничение высоты для подмодулей */
+.submodule.active .submodule-content {
+  max-height: none; /* Раньше было 100px */
+  transition: max-height 0.3s ease-in-out;
+  overflow: visible;
+}

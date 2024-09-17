@@ -1,0 +1,88 @@
+.discount-section {
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+
+  h2 {
+    font-size: 24px;
+    text-decoration: underline;
+
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+
+    li {
+      margin-bottom: 10px;
+      padding-left: 20px;
+      position: relative;
+
+      &::before {
+        content: "●";
+        position: absolute;
+        left: 0;
+      }
+
+      strong {
+        font-weight: bold;
+        text-decoration: underline;
+      }
+
+      em {
+        font-style: italic;
+      }
+    }
+  }
+
+  ul + p {
+    margin-top: 15px;
+  }
+
+  ul li strong {
+    text-decoration: none;
+  }
+}
+
+.builder-discount-container {
+  background-color: #f9f9f9; /* Светлый фон для выделения */
+  padding: 20px;
+  border: 1px solid #ccc; /* Серая обводка */
+  border-radius: 10px; /* Скругленные углы */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Мягкая тень */
+  margin-bottom: 20px; /* Отступ снизу */
+}
+
+.builder-discount-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333; /* Темно-серый цвет текста */
+  margin-bottom: 10px;
+  text-decoration: underline; /* Подчеркивание текста */
+}
+
+.builder-discount-list {
+  padding-left: 20px;
+  list-style: none; /* Убираем стандартные маркеры списка */
+}
+
+.builder-discount-list li {
+  margin-bottom: 10px; /* Отступ между пунктами */
+  font-size: 16px;
+  color: #555; /* Цвет текста */
+}
+
+.builder-discount-list li::before {
+  content: "● "; /* Добавляем символ маркера перед каждым пунктом */
+  color: #333; /* Цвет маркера */
+}

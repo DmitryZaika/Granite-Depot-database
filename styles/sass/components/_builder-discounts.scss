@@ -1,0 +1,39 @@
+.builder-discount-text {
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-decoration: underline;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+ul li {
+  margin-bottom: 8px;
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+ul ul li {
+  font-size: 15px;
+  padding-left: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+ul ul li::before {
+  margin-right: 5px;
+}
+
+ul li strong {
+  text-decoration: underline;
+}
+
+.builder-discount-text strong {
+  color: #333;
+  background-color: #ffd700;
+  padding: 2px 5px;
+  border-radius: 5px;
+}

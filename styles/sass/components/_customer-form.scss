@@ -1,0 +1,103 @@
+/* Стили для управления клиентами */
+.customer-form, .customer-list {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.customer-form h2, .customer-list h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.customer-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.customer-form input[type="text"], .customer-form input[type="email"], .customer-form input[type="tel"], .customer-form input[type="file"], .customer-form input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.customer-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #FFD700;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.customer-form button:hover {
+    background-color: #555;
+}
+
+.customer-list ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.customer-list ul li {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.customer-list ul li:hover {
+    background-color: #f4f4f4;
+}
+
+.customer-list ul li img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.customer-list ul li span {
+    font-size: 16px;
+    color: #333;
+}
+
+.customer-list ul li .edit-btn, .customer-list ul li .delete-btn {
+    margin-left: 10px;
+    color: #FFD700;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.customer-list ul li .edit-btn:hover, .customer-list ul li .delete-btn:hover {
+    background-color: #FFD700;
+    color: #333;
+}
+
+.customer-list ul li .details {
+    display: flex;
+    align-items: center;
+}
