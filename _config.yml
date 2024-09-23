@@ -5,3 +5,7 @@ description: "Описание сайта"
 exclude:
   - node_modules
   - node_modules/**/*.md
+  - node_modules/**/*
+  - styles/sass/node_modules
+  - styles/sass/node_modules/**/*.md
+  - styles/sass/node_modules/**/*
