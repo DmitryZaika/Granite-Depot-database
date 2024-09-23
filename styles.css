@@ -4,6 +4,37 @@
 
 /* Импорт переменных и миксинов сначала */
 /* Импорт базовых стилей */
+
+h1 {
+  font-size: 2em; /* Размер шрифта */
+  font-weight: bold; /* Жирность */
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.17em;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+h5 {
+  font-size: 0.83em;
+  font-weight: bold;
+}
+
+h6 {
+  font-size: 0.67em;
+  font-weight: bold;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -113,6 +144,88 @@ main {
   color: #333333; /* Темно-серый текст на жёлтом фоне */
 }
 
+.search {
+  position: relative; /* Чтобы результаты позиционировались относительно поиска */
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem; /* Отступ сверху */
+}
+
+.search input {
+  width: 320px; /* Ширина поля поиска */
+  padding: 10px 16px; /* Внутренние отступы */
+  border: 1px solid #d1d5db; /* Серый цвет границы */
+  border-radius: 0.5rem; /* Скругленные углы */
+  outline: none; /* Убираем стандартный фокус */
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease; /* Анимация при фокусе и наведении */
+}
+
+.search input:focus,
+.search input:hover {
+  border-color: transparent; /* Убираем границу при фокусе/наведении */
+  box-shadow: 0 0 0 2px #3b82f6; /* Синее свечение при фокусе и наведении */
+}
+
+.search-results {
+  position: absolute;
+  top: 100%; /* Список начинается сразу под поиском */
+  left: 0; /* Выровняем левую сторону списка с полем поиска */
+  background-color: white;
+  border: 1px solid #ddd;
+  width: 100%; /* Ширина списка совпадает с шириной поля поиска */
+  max-height: 150px;
+  overflow-y: auto;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 10; /* Поверх других элементов */
+}
+
+.search-results li {
+  background-color: transparent; /* Исходный цвет фона */
+  color: black; /* Исходный цвет текста */
+  transition:
+    background-color 0.5s ease-in-out,
+    color 0.5s ease-in-out; /* Добавляем плавный переход для цвета фона и текста */
+}
+
+.search-results li:hover {
+  background-color: #3a3a3a; /* Графитовый цвет при наведении */
+  color: white; /* Белый цвет текста для контраста */
+}
+
+.hidden {
+  display: none;
+}
+
+.highlight {
+  background-color: #3a3a3a; /* Графитовый цвет для выделения */
+  color: white; /* Белый цвет текста для контраста */
+}
+
+.hidden {
+  display: none;
+}
+
+.highlight {
+  background-color: #3a3a3a; /* Графитовый цвет для выделения */
+  color: white; /* Белый цвет текста для контраста */
+  border-radius: 5px;
+  transition:
+    background-color 0.5s ease-in-out,
+    color 0.5s ease-in-out; /* Переходы для фона и текста */
+}
+
+.hidden {
+  display: none;
+}
+
+.highlight {
+  background-color: rgb(73, 73, 51);
+}
+
 /* Дополнительные стили для изображений */
 .special-order_images {
   display: flex;
@@ -135,9 +248,11 @@ main {
 }
 
 .commission-img {
-  max-width: 150px;
-  margin: 10px auto;
+  width: 100%; /* Изображение будет адаптироваться под ширину контейнера */
+  max-width: 600px; /* Ограничение максимальной ширины */
   display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Стили для секций с ценами и информацией */
@@ -281,7 +396,7 @@ button {
 .calculator-container .result {
   font-size: 18px;
   margin-top: 20px;
-  text-align: center;
+
   font-weight: bold;
   color: #333;
 }
@@ -289,7 +404,7 @@ button {
 .calculator button,
 .calculator-container button {
   display: block;
-  width: 100%;
+
   padding: 10px;
   background-color: #ffd700;
   color: #333;
@@ -645,7 +760,7 @@ button {
 
 .module {
   background-color: #fff;
-  padding: 20px;
+  padding: 17px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -653,10 +768,15 @@ button {
 .module-title,
 .submodule-title {
   cursor: pointer;
-  margin-bottom: 10px;
+
   user-select: none; /* Нельзя выделить сам заголовок */
 }
 
+.module-list {
+  margin-bottom: 8px;
+  font-size: 16px;
+  padding-left: 10px;
+}
 .submodule-title p,
 .submodule-title span,
 .submodule-title h3 {
@@ -665,7 +785,6 @@ button {
 
 .dropdown-content,
 .submodule-content {
-  margin-top: 10px;
   padding-left: 20px;
   max-height: 0;
   overflow: hidden;
@@ -699,19 +818,6 @@ button {
 
 ul {
   padding-left: 20px;
-}
-
-ul li {
-  margin-bottom: 8px;
-  font-size: 16px;
-  padding-left: 10px;
-}
-
-ul ul li {
-  font-size: 15px;
-  padding-left: 15px;
-  margin-top: 5px;
-  margin-bottom: 5px;
 }
 
 ul ul li::before {

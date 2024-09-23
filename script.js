@@ -1,17 +1,117 @@
-// Get all module and submodule titles
+// Получаем все модули, подмодули и весь текст на странице
 const moduleTitles = document.querySelectorAll(".module-title");
 const submoduleTitles = document.querySelectorAll(".submodule-title");
+const searchInput = document.getElementById("searchInput");
+const searchResults = document.getElementById("searchResults");
 
-// Add click event listener to each module title
+// Получаем все текстовые элементы на странице, исключая теги script и style
+const allTextElements = document.querySelectorAll(
+  "body *:not(script):not(style)"
+);
+
+// Собираем текст с модулей, подмодулей и всего текста на странице
+const allTextContent = [
+  ...moduleTitles,
+  ...submoduleTitles,
+  ...Array.from(allTextElements).filter(
+    (element) => element.textContent.trim() !== ""
+  ),
+].map((element) => ({
+  element,
+  text: element.textContent.toLowerCase(),
+}));
+
+// Функция для обработки ввода в поисковое поле
+searchInput.addEventListener("input", function () {
+  const query = searchInput.value.toLowerCase();
+  searchResults.innerHTML = ""; // Очищаем предыдущие результаты
+
+  if (query.length === 0) {
+    searchResults.classList.add("hidden"); // Скрываем результаты при пустом запросе
+    return; // Ничего не делаем, если запрос пуст
+  }
+
+  // Находим совпадения и сортируем по наилучшему результату
+  const matches = allTextContent
+    .filter((item) => item.text.includes(query))
+    .sort((a, b) => a.text.indexOf(query) - b.text.indexOf(query))
+    .slice(0, 4); // Показываем не более 4 совпадений
+
+  if (matches.length > 0) {
+    searchResults.classList.remove("hidden"); // Показываем результаты, если есть совпадения
+  }
+
+  matches.forEach((match) => {
+    const li = document.createElement("li");
+    li.textContent = match.element.textContent.trim().substring(0, 50) + "..."; // Показываем первые 50 символов совпадения
+    li.addEventListener("click", () => {
+      highlightAndScroll(match.element);
+      searchResults.classList.add("hidden"); // Скрываем результаты после выбора
+    });
+    searchResults.appendChild(li);
+  });
+});
+
+// Функция для прокрутки к элементу и его подсветки
+function highlightAndScroll(element) {
+  const module = element.closest(".module");
+  const submodule = element.closest(".submodule-content");
+
+  // Если элемент внутри модуля, раскрываем модуль
+  if (module) {
+    const dropdownContent = module.querySelector(".dropdown-content");
+
+    // Открываем модуль, если он не открыт
+    if (!module.classList.contains("active")) {
+      module.classList.add("active");
+      dropdownContent.style.maxHeight = dropdownContent.scrollHeight + "px";
+    }
+  }
+
+  // Если элемент находится в подмодуле, раскрываем подмодуль
+  if (submodule) {
+    const submoduleTitle = submodule.previousElementSibling;
+    const moduleDropdownContent = submodule.closest(".dropdown-content");
+
+    if (
+      submoduleTitle &&
+      submoduleTitle.classList.contains("submodule-title")
+    ) {
+      submoduleContent = submoduleTitle.nextElementSibling;
+
+      // Открываем подмодуль, если он закрыт
+      if (!submoduleContent.style.maxHeight) {
+        submoduleContent.style.maxHeight = submoduleContent.scrollHeight + "px";
+
+        // Увеличиваем высоту родительского модуля, чтобы вместить открытый подмодуль
+        moduleDropdownContent.style.maxHeight =
+          moduleDropdownContent.scrollHeight +
+          submoduleContent.scrollHeight +
+          "px";
+      }
+    }
+  }
+
+  // Прокручиваем к выбранному элементу
+  element.scrollIntoView({ behavior: "smooth", block: "center" });
+
+  // Подсвечиваем выбранный элемент
+  element.classList.add("highlight");
+  setTimeout(() => {
+    element.classList.remove("highlight");
+  }, 1000); // Убираем подсветку через 1 секунду
+}
+
+// Добавление слушателя клика к заголовкам модулей
 moduleTitles.forEach((title) => {
   title.addEventListener("click", () => {
     const module = title.parentElement;
     const dropdownContent = module.querySelector(".dropdown-content");
 
-    // Toggle active class for the module
+    // Переключение активного класса для модуля
     module.classList.toggle("active");
 
-    // Collapse all submodules when collapsing the main module
+    // Сворачиваем все подмодули при закрытии основного модуля
     if (!module.classList.contains("active")) {
       const submoduleContents = module.querySelectorAll(".submodule-content");
       submoduleContents.forEach((subContent) => {
@@ -19,7 +119,7 @@ moduleTitles.forEach((title) => {
       });
     }
 
-    // Toggle the maxHeight of the dropdown content
+    // Переключение maxHeight для раскрытия контента
     if (dropdownContent.style.maxHeight) {
       dropdownContent.style.maxHeight = null;
     } else {
@@ -28,19 +128,19 @@ moduleTitles.forEach((title) => {
   });
 });
 
-// Add click event listener to each submodule title
+// Добавление слушателя клика к заголовкам подмодулей
 submoduleTitles.forEach((subTitle) => {
   subTitle.addEventListener("click", () => {
     const submoduleContent = subTitle.nextElementSibling;
     const moduleDropdownContent = subTitle.closest(".dropdown-content");
 
-    // Toggle max-height for submodule content
+    // Переключение max-height для контента подмодуля
     if (submoduleContent.style.maxHeight) {
       submoduleContent.style.maxHeight = null;
     } else {
       submoduleContent.style.maxHeight = submoduleContent.scrollHeight + "px";
 
-      // Adjust the height of the entire module to accommodate the open submodule
+      // Настройка высоты для всего модуля, чтобы вместить открытый подмодуль
       const currentModuleHeight = moduleDropdownContent.scrollHeight;
       moduleDropdownContent.style.maxHeight =
         currentModuleHeight + submoduleContent.scrollHeight + "px";

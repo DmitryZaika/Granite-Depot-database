@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Instructions - Training Program</title>
-    <link rel="stylesheet" href="./styles/css/main.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <!-- Header with logo and navigation -->
@@ -23,7 +27,8 @@
         </ul>
       </nav>
       <div class="search">
-        <input type="text" placeholder="Search..." />
+        <input id="searchInput" type="text" placeholder="Search..." />
+        <ul id="searchResults" class="search-results hidden"></ul>
       </div>
     </header>
 
@@ -36,7 +41,7 @@
           <h2 class="module-title">Leading a customer</h2>
           <div class="dropdown-content">
             <ul>
-              <li>
+              <li class="module-list">
                 <h3 class="submodule-title">After a template</h3>
                 <div class="submodule-content">
                   <p>
@@ -49,7 +54,7 @@
                   </p>
                 </div>
               </li>
-              <li>
+              <li class="module-list">
                 <h3 class="submodule-title">After install</h3>
                 <div class="submodule-content">
                   <p>
@@ -62,7 +67,7 @@
                   </p>
                 </div>
               </li>
-              <li>
+              <li class="module-list">
                 <h3 class="submodule-title">Before a template</h3>
                 <div class="submodule-content">
                   <p>
@@ -78,7 +83,7 @@
           <h2 class="module-title">Special Order</h2>
           <div class="dropdown-content">
             <ul>
-              <li>
+              <li class="module-list">
                 <h3 class="submodule-title">Custom Orders</h3>
                 <div class="submodule-content">
                   <p>
@@ -95,7 +100,7 @@
           <h2 class="module-title">Discounts</h2>
           <div class="dropdown-content">
             <ul>
-              <li>
+              <li class="module-list">
                 <h3 class="submodule-title">Customers</h3>
                 <div class="submodule-content">
                   <div class="discount-section">
@@ -188,7 +193,7 @@
                   </div>
                 </div>
               </li>
-              <li>
+              <li class="module-list">
                 <h3 class="submodule-title">Builders</h3>
                 <div class="submodule-content">
                   <div class="builder-discount-container">
@@ -366,7 +371,7 @@
           <h2 class="module-title">Selling Steps</h2>
           <div class="dropdown-content">
             <ul>
-              <li>
+              <li class="module-list">
                 <h3 class="submodule-title">Walk in</h3>
                 <div class="submodule-content">
                   <p>
@@ -375,7 +380,7 @@
                   </p>
                 </div>
               </li>
-              <li>
+              <li class="module-list">
                 <h3 class="submodule-title">Lead</h3>
                 <div class="submodule-content">
                   <p>
@@ -384,7 +389,7 @@
                   </p>
                 </div>
               </li>
-              <li>
+              <li class="module-list">
                 <h3 class="submodule-title">Closing</h3>
                 <div class="submodule-content">
                   <p>
@@ -402,7 +407,7 @@
           <h2 class="module-title">Responsibilities</h2>
           <div class="dropdown-content">
             <ul>
-              <li>
+              <li class="module-list">
                 <h3 class="submodule-title">Customer Communication</h3>
                 <div class="submodule-content">
                   <p>
@@ -411,7 +416,7 @@
                   </p>
                 </div>
               </li>
-              <li>
+              <li class="module-list">
                 <h3 class="submodule-title">Order Accuracy</h3>
                 <div class="submodule-content">
                   <p>
@@ -420,7 +425,7 @@
                   </p>
                 </div>
               </li>
-              <li>
+              <li class="module-list">
                 <h3 class="submodule-title">Timely Delivery</h3>
                 <div class="submodule-content">
                   <p>
@@ -435,22 +440,22 @@
 
         <!-- Module 4: Commission -->
         <div class="module">
-          <h2 class="module-title">Commission</h2>
+          <h2 class="module-title text-2xl font-bold">Commission</h2>
           <div class="dropdown-content">
             <ul>
-              <li>
-                <h3 style="margin-bottom: 25px">
+              <li class="module-list">
+                <h3 class="mb-6">
                   For the jobs sold after 1/1/24 we will have updated
                   commission:
                 </h3>
-                <ul style="margin-bottom: 10px">
+                <ul class="mb-4">
                   <li class="bold-text">
                     ● Level 1 & 2 stones - the commission is 3%
                   </li>
                   <li class="bold-text">● Level 3 or above - 5%</li>
                   <li class="bold-text">● Remnants - 7%</li>
                 </ul>
-                <p style="font-size: 18px">
+                <p class="text-lg mb-6">
                   In case the job is mixed: kitchen - level 4 quartz, vanity -
                   level 1 granite, then please put them separately in your
                   commission sheet:
@@ -458,11 +463,11 @@
                 <img
                   src="./images/commission/Sales_commission_list.jpg"
                   alt="Commission Sheet"
-                  class="commission-img"
+                  class="commission-img w-full max-w-lg mx-auto mb-6"
                 />
 
-                <h2 style="margin-bottom: 10px; margin-top: 10px">Bonuses:</h2>
-                <ul style="margin-bottom: 10px">
+                <h2 class="text-xl font-bold my-4">Bonuses:</h2>
+                <ul class="mb-4 text-2x1">
                   <li class="bold-text">
                     ➢ In case your sales per month reach $50,000 - you are
                     getting a bonus of $500
@@ -476,7 +481,7 @@
                     getting a bonus of $1000
                   </li>
                 </ul>
-                <div style="font-size: 18px">
+                <div class="text-lg mb-6">
                   <p>
                     * The sales target must be $50,000, not $49,750. If someone
                     cancels the job - it is deducted from the sales target.
@@ -490,7 +495,7 @@
                     * Bonus is paid the following week after the end of the
                     month.
                   </p>
-                  <p style="margin-bottom: 20px">
+                  <p class="mb-5">
                     * These conditions apply for January and February, after
                     that something might change.
                   </p>
@@ -498,9 +503,9 @@
                 <img
                   src="./images/commission/sales_commission_calendar.jpg"
                   alt="Sales Commission Calendar"
-                  class="commission-img"
+                  class="commission-img w-full max-w-lg mx-auto mb-6"
                 />
-                <h3>
+                <h3 class="text-xl">
                   ➢ Sealer commission remains the same - $1/sqft of sealer sold
                 </h3>
               </li>
@@ -509,10 +514,90 @@
         </div>
 
         <div class="module">
+          <h2 class="module-title">Remnants</h2>
+          <div class="dropdown-content">
+            <div class="p-6 rounded-lg shadow-lg">
+              <h2 class="text-xl font-semibold mb-4">
+                Remnants Policy and Procedure
+              </h2>
+              <ul class="list-none space-y-4">
+                <li class="flex items-start">
+                  <span
+                    class="inline-block w-2 h-2 bg-black rounded-full mr-3 mt-1"
+                  ></span>
+                  <p>
+                    <strong>Minimum Price:</strong> Remnants start at $35 per
+                    square foot.
+                  </p>
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="inline-block w-2 h-2 bg-black rounded-full mr-3 mt-1"
+                  ></span>
+                  <p>
+                    <strong>Price per Square Foot:</strong> The price for
+                    remnants is determined by subtracting $20 from the standard
+                    price of the specific color.
+                  </p>
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="inline-block w-2 h-2 bg-black rounded-full mr-3 mt-1"
+                  ></span>
+                  <p>
+                    <strong>Sales Commission:</strong> Sales representatives
+                    will receive a 7% commission from the total sale.
+                  </p>
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="inline-block w-2 h-2 bg-black rounded-full mr-3 mt-1"
+                  ></span>
+                  <p>
+                    <strong>Remnant Marking:</strong> After a sale, make sure to
+                    mark the remnant as sold.
+                  </p>
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="inline-block w-2 h-2 bg-black rounded-full mr-3 mt-1"
+                  ></span>
+                  <p>
+                    <strong>Minimum Order for Pick-up:</strong> Orders for
+                    remnants must be a minimum of $350.
+                  </p>
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="inline-block w-2 h-2 bg-black rounded-full mr-3 mt-1"
+                  ></span>
+                  <p>
+                    <strong>Condition of Sale:</strong> Remnants are sold as-is
+                    and must be inspected by the customer before purchase. If
+                    the customer is purchasing remotely, the salesperson must
+                    inspect the remnant on their behalf.
+                  </p>
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="inline-block w-2 h-2 bg-black rounded-full mr-3 mt-1"
+                  ></span>
+                  <p>
+                    <strong>Project Size Check:</strong> Sales representatives
+                    must double-check the remnant's size to ensure it covers the
+                    entire project, including backsplash.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="module">
           <h2 class="module-title">Objections</h2>
           <div class="dropdown-content">
             <ul>
-              <li>
+              <li class="module-list">
                 <h3 class="submodule-title">Custom Orders</h3>
                 <div class="submodule-content">
                   <p>
