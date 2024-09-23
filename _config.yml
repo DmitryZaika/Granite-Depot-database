@@ -1,2 +1,7 @@
+title: "Granite Depot"
+description: "Описание сайта"
+
+# Исключение node_modules из обработки Jekyll
 exclude:
   - node_modules
+  - node_modules/**/*.md
