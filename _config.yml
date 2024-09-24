@@ -4,8 +4,6 @@ description: "Описание сайта"
 # Исключение node_modules из обработки Jekyll
 exclude:
   - node_modules
-  - node_modules/**/*.md
   - node_modules/**/*
   - styles/sass/node_modules
-  - styles/sass/node_modules/**/*.md
   - styles/sass/node_modules/**/*
