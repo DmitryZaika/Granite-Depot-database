@@ -200,11 +200,6 @@ main {
   display: none;
 }
 
-.highlight {
-  background-color: #3a3a3a; /* Графитовый цвет для выделения */
-  color: white; /* Белый цвет текста для контраста */
-}
-
 .hidden {
   display: none;
 }
@@ -756,6 +751,7 @@ button {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  transition: none;
 }
 
 .module {
