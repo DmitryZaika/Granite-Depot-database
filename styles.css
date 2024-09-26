@@ -63,7 +63,6 @@ ul,
 ol {
   list-style: none;
   margin: 10px 0;
-  padding-left: 20px;
 }
 
 ul.numbered,
@@ -152,7 +151,7 @@ main {
 }
 
 .search input {
-  width: 320px; /* Ширина поля поиска */
+  width: 320px;
   padding: 10px 16px; /* Внутренние отступы */
   border: 1px solid #d1d5db; /* Серый цвет границы */
   border-radius: 0.5rem; /* Скругленные углы */
@@ -160,6 +159,18 @@ main {
   transition:
     box-shadow 0.2s ease,
     border-color 0.2s ease; /* Анимация при фокусе и наведении */
+}
+
+@media (max-width: 1024px) {
+  .search input {
+    width: 200px; /* Уменьшенная ширина для планшетов */
+  }
+}
+
+@media (max-width: 768px) {
+  .search input {
+    width: 240px; /* Еще меньшая ширина для телефонов */
+  }
 }
 
 .search input:focus,
@@ -786,6 +797,12 @@ button {
   overflow: hidden;
   transition: max-height 0.3s ease-in-out;
 }
+@media (max-width: 768px) {
+  .dropdown-content,
+  .submodule-content {
+    padding-left: 0;
+  }
+}
 
 .dropdown-content ul {
   list-style-type: none;
@@ -810,10 +827,6 @@ button {
   background-color: #ffd700;
   padding: 2px 5px;
   border-radius: 5px;
-}
-
-ul {
-  padding-left: 20px;
 }
 
 ul ul li::before {
@@ -928,18 +941,48 @@ header {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   position: relative;
 }
+@media (max-width: 1024px) {
+  header {
+    padding: 10px 5px;
 
+    /* Уменьшенная ширина для планшетов */
+  }
+}
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+}
 /* Логотип */
 .logo img {
   width: 100px;
 }
+@media (max-width: 1024px) {
+  .logo img {
+    width: 70px; /* Уменьшенная ширина для планшетов */
+  }
+}
 
 /* Стили навигации */
-.main-nav ul {
+.main-nav_list {
   display: flex;
   gap: 20px;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .main-nav_list {
+    gap: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-nav_list {
+    gap: 20px;
+    flex-direction: column;
+  }
 }
 
 .main-nav ul li {
@@ -958,7 +1001,49 @@ header {
     color 0.3s ease;
 }
 
+@media (max-width: 1024px) {
+  .main-nav ul li a {
+    padding: 7px 10px;
+  }
+}
+
 .main-nav ul li a:hover {
   background-color: #ffd700;
   color: #333;
+}
+
+/* Мобильные стили */
+
+.module {
+  padding: 20px 10px;
+}
+
+.module-title,
+.submodule-title {
+  /* font-size: 18px; */
+}
+
+.image-gallery,
+.supports-gallery,
+.documents-gallery {
+  gap: 5px;
+}
+
+@media (max-width: 768px) {
+  .image-gallery,
+  .supports-gallery,
+  .documents-gallery {
+    justify-content: center;
+  }
+}
+
+.calculator,
+.calculator-container {
+  width: 100%;
+  padding: 10px;
+}
+
+.customer-form,
+.customer-list {
+  width: 100%;
 }
