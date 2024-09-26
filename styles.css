@@ -592,6 +592,14 @@ button {
     background-color 0.3s ease;
 }
 
+@media (max-width: 768px) {
+  .thumbnail,
+  .support-thumbnail,
+  .pdf-thumbnail {
+    width: 300px;
+  }
+}
+
 .thumbnail:hover,
 .support-thumbnail:hover,
 .pdf-thumbnail:hover {
