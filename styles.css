@@ -848,8 +848,9 @@ ul li strong {
 /* Стили для склада */
 
 .column-headings {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr; /* Сетка с нужными пропорциями */
+  gap: 10px;
   padding: 10px;
   background-color: #f1f1f1;
   font-weight: bold;
@@ -857,13 +858,19 @@ ul li strong {
   font-size: 16px;
 }
 
+.column-headings .checkbox,
+.column-headings .name,
+.column-headings .phone,
+.column-headings .email,
+.column-headings .notes {
+  text-align: center;
+}
 .column-headings .heading {
   text-align: center;
 }
 
 .column-headings .supplier {
-  width: 25%;
-  text-align: left; /* Выравнивание заголовка "Suppliers" влево */
+  text-align: left;
 }
 
 .column-headings .checkbox {
@@ -886,28 +893,105 @@ ul li strong {
   margin: 0;
 }
 
+@media (max-width: 1024px) {
+  .column-headings .notes,
+  .warehouse-list li .notes {
+    display: none;
+  }
+}
+
+/* Скрываем все заголовки на экранах 768px и меньше */
+@media (max-width: 768px) {
+  .column-headings {
+    display: none;
+  }
+
+  .warehouse-list li {
+    display: flex;
+    text-align: center; /* Центрируем весь текст */
+    flex-direction: column;
+  }
+
+  .warehouse-list li .supplier,
+  .warehouse-list li .checkbox,
+  .warehouse-list li .name,
+  .warehouse-list li .phone,
+  .warehouse-list li .email {
+    width: 100%;
+    text-align: center; /* Центрируем каждый элемент */
+    padding: 5px 0;
+  }
+}
+
+/* Стили для списка */
+.warehouse-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .warehouse-list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr; /* Сетка для элементов списка */
+  gap: 10px;
   padding: 15px;
-  margin: 10px 0; /* Отступ между строками */
+  margin: 10px 0;
   font-family: Arial, sans-serif;
   font-size: 16px;
   color: #333;
   background-color: #fff;
-  border: 1px solid #ddd; /* Добавлен бордер */
-  border-radius: 5px; /* Округленные углы */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для выделения */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.warehouse-list li .supplier {
+  text-align: left;
+}
+
+.warehouse-list li .checkbox {
+  max-width: 50px;
+  text-align: center;
+}
+
+/* Медиазапрос для экранов шириной 768px и меньше */
+@media (max-width: 768px) {
+  .warehouse-list li {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .warehouse-list li .supplier,
+  .warehouse-list li .checkbox,
+  .warehouse-list li .name,
+  .warehouse-list li .phone,
+  .warehouse-list li .email {
+    width: 100%;
+    text-align: left;
+    padding: 5px 0;
+  }
+}
 .warehouse-list li:hover {
   background-color: #f7f7f7;
 }
 
 .warehouse-list li .supplier {
-  width: 25%;
   text-align: left; /* Выравнивание текста "Suppliers" влево */
+}
+
+@media (max-width: 768px) {
+  .warehouse-list li .supplier {
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+  }
+
+  .warehouse-list li .checkbox,
+  .warehouse-list li .name,
+  .warehouse-list li .phone,
+  .warehouse-list li .email {
+    text-align: center;
+  }
 }
 
 .warehouse-list li .supplier a {
@@ -921,9 +1005,16 @@ ul li strong {
 }
 
 .warehouse-list li .checkbox {
-  width: 5%;
+  width: 30%;
   text-align: center;
   max-width: 60px;
+}
+
+@media (max-width: 768px) {
+  .warehouse-list li .checkbox {
+    width: 0;
+    height: 0;
+  }
 }
 
 .warehouse-list li .checkbox img {
@@ -931,12 +1022,18 @@ ul li strong {
   display: inline-block;
 }
 
-.warehouse-list li .name,
-.warehouse-list li .phone,
-.warehouse-list li .email,
-.warehouse-list li .notes {
-  width: 15%;
-  text-align: center;
+@media (max-width: 768px) {
+  .warehouse-list li .name,
+  .warehouse-list li .phone,
+  .warehouse-list li .email {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .notes {
+    width: 0%;
+  }
 }
 
 /* Стили для заголовка */
@@ -1034,14 +1131,17 @@ header {
 .image-gallery,
 .supports-gallery,
 .documents-gallery {
-  gap: 5px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
 }
 
 @media (max-width: 768px) {
   .image-gallery,
   .supports-gallery,
   .documents-gallery {
-    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
   }
 }
 
