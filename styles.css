@@ -85,6 +85,12 @@ main {
   padding: 20px;
 }
 
+@media (max-width: 768px) {
+  main {
+    padding: 5px;
+  }
+}
+
 /* Стили для главного меню */
 .main-menu {
   display: flex;
@@ -780,6 +786,12 @@ button {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+@media (max-width: 768) {
+  .module {
+    padding: 0;
+  }
+}
+
 .module-title,
 .submodule-title {
   cursor: pointer;
@@ -792,6 +804,13 @@ button {
   font-size: 16px;
   padding-left: 10px;
 }
+
+@media (max-width: 768px) {
+  .module-list {
+    padding-left: 0;
+  }
+}
+
 .submodule-title p,
 .submodule-title span,
 .submodule-title h3 {
@@ -1094,6 +1113,12 @@ header {
   list-style: none;
 }
 
+@media (max-width: 768px) {
+  .main-nav ul li {
+    width: 100%;
+  }
+}
+
 .main-nav ul li a {
   padding: 10px 15px;
   border: 2px solid #ffd700;
@@ -1109,6 +1134,19 @@ header {
 @media (max-width: 1024px) {
   .main-nav ul li a {
     padding: 7px 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-nav ul li a {
+    display: inline-block;
+    width: 70%;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-nav {
+    width: 100%;
   }
 }
 
@@ -1140,8 +1178,9 @@ header {
   .image-gallery,
   .supports-gallery,
   .documents-gallery {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     justify-items: center;
+    padding: 0;
   }
 }
 
